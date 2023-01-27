@@ -18,13 +18,27 @@ Windows systems with no extra intervention.
 
 ## Macintosh
 
-You need to have opencv installed so that pypatchmatch can be built:
+You need to have opencv installed so that pypatchmatch can be built.
 
-```bash
+### Homebrew
+
+```sh
 brew install opencv
 ```
 
 The next time you start `invoke`, after successfully installing opencv, pypatchmatch will be built.
+
+### MacPorts
+
+MacPorts requires some extra steps to get InvokeAI to see the opencv installed files:
+
+```sh
+sudo port install py310-opencv4
+sudo ln -sf /opt/local/lib/opencv4/pkgconfig/opencv4.pc /opt/local/lib/opencv4/pkgconfig/opencv.pc
+export PKG_CONFIG_PATH=/opt/local/lib/opencv4/pkgconfig
+```
+
+Start `invoke` immediately after these steps to build pypatchmatch.
 
 ## Linux
 
